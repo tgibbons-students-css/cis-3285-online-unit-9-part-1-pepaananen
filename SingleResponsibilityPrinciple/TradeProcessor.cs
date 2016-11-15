@@ -90,6 +90,7 @@ namespace SingleResponsibilityPrinciple
             return true;
         }
 
+        //This method was also complete... 
         private void LogMessage(string msgType, string message, params object[] args)
         {
             Console.WriteLine(message, args);
