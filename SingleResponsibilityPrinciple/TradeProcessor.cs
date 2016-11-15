@@ -10,9 +10,14 @@ namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
     {
-        private IEnumerable<string> ReadTradeData(Stream stream)
+
+        //This one I was able to do. For part 1 the first 2 where already done.
+        private IEnumerable<string> ReadURLTradeData(string url)
         {
+
             var tradeData = new List<string>();
+            var client = new WebClient();
+            using (var stream = client.OpenRead(url))
             using (var reader = new StreamReader(stream))
             {
                 string line;
@@ -22,6 +27,7 @@ namespace SingleResponsibilityPrinciple
                 }
             }
             return tradeData;
+
         }
 
         private IEnumerable<TradeRecord> ParseTrades(IEnumerable<string> tradeData)
@@ -148,9 +154,9 @@ namespace SingleResponsibilityPrinciple
             LogMessage("INFO", "  {0} trades processed", trades.Count());
         }
 
-        public void ProcessTrades(Stream stream)
+        public void ProcessTrades(string url)
         {
-            var lines = ReadTradeData(stream);
+            var lines = ReadURLTradeData(url);
             var trades = ParseTrades(lines);
             StoreTrades(trades);
         }
