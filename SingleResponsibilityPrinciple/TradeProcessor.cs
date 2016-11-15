@@ -67,6 +67,8 @@ namespace SingleResponsibilityPrinciple
                 LogMessage("WARN", " Trade amount on line {0} not a valid integer: '{1}'", currentLine, fields[1]);
                 return false;
             }
+
+            //This was already done when I got this --Peter Paananen
             if (tradeAmount<1000)
             {
                 LogMessage("WARN", " Trade amount on line {0} is too small: '{1}'", currentLine, fields[1]);
