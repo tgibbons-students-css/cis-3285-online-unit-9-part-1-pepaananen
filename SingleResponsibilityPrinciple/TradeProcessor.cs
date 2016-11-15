@@ -5,7 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-
+//Peter Paananen
 namespace SingleResponsibilityPrinciple
 {
     public class TradeProcessor
@@ -74,7 +74,7 @@ namespace SingleResponsibilityPrinciple
             }
             if (tradeAmount > 100000)
             {
-                LogMessage("WARN", " Trade amount on line {0} is too small: '{1}'", currentLine, fields[1]);
+                LogMessage("WARN", " Trade amount on line {0} is too large: '{1}'", currentLine, fields[1]);
                 return false;
             }
 
